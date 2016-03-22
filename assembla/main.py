@@ -20,5 +20,23 @@ def merge_request():
     space().merge_request()
 
 
+@cli.command('review')
+def review():
+    '''Review open merge requests'''
+    space().view_merge_requests()
+
+
+@cli.command('tickets')
+def tickets():
+    '''View open tickets'''
+    space().view_tickets()
+
+
+@cli.command('new-ticket')
+def new_ticket():
+    '''Open a new ticket'''
+    space().new_ticket()
+
+
 def space():
     return AssemblaSpace()

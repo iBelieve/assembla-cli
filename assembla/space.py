@@ -10,7 +10,7 @@ class AssemblaSpace(Repository):
         super(AssemblaSpace, self).__init__(path)
 
         if not self.origin_url:
-            raise ClickException('Repository has no origin, so can\'t be an Assembla repo!')
+            raise ClickException('Can\'t identify Assembla repo: no origin found')
 
         match = re.match(r'git@git\.assembla\.com:([^.]+)(\..*)?\.git', self.origin_url)
 
@@ -39,8 +39,8 @@ class AssemblaSpace(Repository):
 
     def make_merge_request(self):
         if self.main_branch == self.current_branch:
-            raise Exception('Currently on the {} branch, cannot open merge request.'
-                            .format(self.main_branch))
+            raise ClickException('Currently on the {} branch, cannot open merge request.'
+                                 .format(self.main_branch))
 
         self.open_code_url('git/compare/{}...{}'.format(self.main_branch, self.current_branch))
 
