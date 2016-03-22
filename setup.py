@@ -16,7 +16,7 @@ with open('README.rst', 'rb') as f:
 
 setup(name='assembla-cli',
       version=version,
-      description='Python command line application bare bones template.',
+      description='A small command-line tool for working with Assembla spaces',
       long_description=long_description,
       author='Michael Spencer',
       author_email='sonrisesoftware@gmail.com',
