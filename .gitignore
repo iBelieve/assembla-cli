@@ -1,2 +1,4 @@
 *.pyc
 assembla_cli.egg-info
+build
+dist
