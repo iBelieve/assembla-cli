@@ -17,7 +17,7 @@ def apply(url_or_branch):
 @cli.command('merge-request')
 def merge_request():
     '''Create a new merge request'''
-    space().merge_request()
+    space().make_merge_request()
 
 
 @cli.command('review')

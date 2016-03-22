@@ -11,7 +11,7 @@ class Repository(object):
         if self.origin_url == 'origin':
             self.origin_url = None
 
-        self.branches = [branch[3:] for branch in self.run('branch').split('\n')]
+        self.branches = [branch[2:] for branch in self.run('branch').split('\n')]
 
         self.main_branch = 'develop' if self.has_branch('develop') else 'master'
         self.current_branch = self.run('rev-parse --abbrev-ref HEAD')

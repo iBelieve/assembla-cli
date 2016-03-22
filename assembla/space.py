@@ -26,7 +26,7 @@ class AssemblaSpace(Repository):
         webbrowser.open('https://www.assembla.com/spaces/{}/{}'.format(self.name, url))
 
     def open_code_url(self, url):
-        webbrowser.open('https://www.assembla.com/code/{}/{}'.format(self.name, self.url))
+        webbrowser.open('https://www.assembla.com/code/{}/{}'.format(self.name, url))
 
     def view_merge_requests(self):
         self.open_url('git/merge_requests')

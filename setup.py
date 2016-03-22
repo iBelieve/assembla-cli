@@ -28,5 +28,5 @@ setup(name='assembla-cli',
       ],
       entry_points='''
           [console_scripts]
-          yourscript=assembla.main:cli
+          assembla=assembla.main:cli
       ''')
