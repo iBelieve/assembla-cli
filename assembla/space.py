@@ -1,5 +1,6 @@
 import re
 import webbrowser
+from click import ClickException
 from .api import get_merge_request, close_merge_request
 from .git import Repository
 
@@ -9,7 +10,7 @@ class AssemblaSpace(Repository):
         super(AssemblaSpace, self).__init__(path)
 
         if not self.origin_url:
-            raise Exception('Repository has no origin, so can\'t be an Assembla repo!')
+            raise ClickException('Repository has no origin, so can\'t be an Assembla repo!')
 
         match = re.match(r'git@git\.assembla\.com:([^.]+)(\..*)?\.git', self.origin_url)
 
@@ -19,7 +20,7 @@ class AssemblaSpace(Repository):
         if match is not None:
             self.name = match.group(1)
         else:
-            raise Exception('Not inside an Assembla git repo: ' + self.origin_url)
+            raise ClickException('Not inside an Assembla git repo: ' + self.origin_url)
 
     def open_url(self, url):
         webbrowser.open('https://www.assembla.com/spaces/{}/{}'.format(self.name, url))
@@ -47,7 +48,7 @@ class AssemblaSpace(Repository):
         target_branch = self.main_branch
 
         if self.has_unstaged_changes:
-            raise Exception('Git index must be empty before merging a merge request')
+            raise ClickException('Git index must be empty before merging a merge request')
 
         match = re.merge(r'https:\/\/www\.assembla\.com\/spaces\/(.+)\/git\/merge_requests\/(\d+)(\?.+)?',
                          url_or_branch)
@@ -58,12 +59,12 @@ class AssemblaSpace(Repository):
             temp_branch = 'assembla-merge-' + merge_id
 
             if space_name != self.name:
-                raise Exception('Unable to merge MR from a different Assembla space: ' + space_name)
+                raise ClickException('Unable to merge MR from a different Assembla space: ' + space_name)
 
             merge_request = get_merge_request(self.name, merge_id)
 
             if merge_request['status'] != 0:
-                raise Exception('This merge request has already been merged or rejected!')
+                raise ClickException('This merge request has already been merged or rejected!')
 
             source_branch = merge_request['source_symbol']
             target_branch = merge_request['target_symbol']
