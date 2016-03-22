@@ -22,29 +22,29 @@ Run using::
 
 The following commands are available:
 
- * ``apply MERGE_URL``
+- ``apply MERGE_URL``
 
-   Rebases a merge request on top of the target branch and then fast-forward merges it onto the target branch. The merge request is then closed. The merged commits are not pushed to Assembla, so you are able to use ``git rebase`` to interactively edit, squash, or remove commits.
+  Rebases a merge request on top of the target branch and then fast-forward merges it onto the target branch. The merge request is then closed. The merged commits are not pushed to Assembla, so you are able to use ``git rebase`` to interactively edit, squash, or remove commits.
 
- * ``apply BRANCH_NAME``
+- ``apply BRANCH_NAME``
 
-   Rebases a merge request on top of the current branch and then fast-forward merges it onto the current branch. The merged commits are not pushed to Assembla, so you are able to use ``git rebase`` to interactively edit, squash, or remove commits.
+  Rebases a merge request on top of the current branch and then fast-forward merges it onto the current branch. The merged commits are not pushed to Assembla, so you are able to use ``git rebase`` to interactively edit, squash, or remove commits.
 
- * ``review``
+- ``review``
 
-   Opens your web browser to the Merge Requests page in your Assembla space so you can review open merge requests.
+  Opens your web browser to the Merge Requests page in your Assembla space so you can review open merge requests.
 
- * ``merge-request``
+- ``merge-request``
 
-   Opens your web browser to the New Merge Request page for your Assembla space, prefilled with the current branch as the source branch and your main branch (``develop`` or ``master``) as the target branch.
+  Opens your web browser to the New Merge Request page for your Assembla space, prefilled with the current branch as the source branch and your main branch (``develop`` or ``master``) as the target branch.
 
- * ``tickets``
+- ``tickets``
 
-   Opens your web browser to the Tickets page in your Assembla space.
+  Opens your web browser to the Tickets page in your Assembla space.
 
- * ``new-ticket``
+- ``new-ticket``
 
-   Opens your web browser to the New Ticket page in your Assembla space.
+  Opens your web browser to the New Ticket page in your Assembla space.
 
 
 Licensing
