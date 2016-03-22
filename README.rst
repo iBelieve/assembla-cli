@@ -2,6 +2,13 @@
 Assembla CLI
 ============
 
+.. image:: https://img.shields.io/pypi/v/assembla-cli.svg   :target: https://pypi.python.org/pypi/assembla-cli
+.. image:: https://img.shields.io/pypi/pyversions/assembla-cli.svg   :target: https://pypi.python.org/pypi/assembla-cli
+.. image:: https://img.shields.io/pypi/status/assembla-cli.svg   :target: https://pypi.python.org/pypi/assembla-cli/0.1.1
+.. image:: https://img.shields.io/github/license/iBeliever/assembla-cli.svg   :target: https://github.com/iBeliever/assembla-cli
+.. image:: https://img.shields.io/pypi/dm/assembla-cli.svg   :target: https://pypi.python.org/pypi/assembla-cli
+.. image:: https://img.shields.io/maintenance/yes/2016.svg   :target: https://github.com/iBeliever/assembla-cli/commits/master
+
 Assembla CLI is an unofficial command-line interface to Assembla. It provides commands to easily open and apply merge requests, as well as commands to open different Assembla views in your project.
 
 
