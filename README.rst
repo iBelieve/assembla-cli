@@ -22,9 +22,13 @@ Run using::
 
 The following commands are available:
 
- * ``apply (MERGE_URL | BRANCH_NAME)``
+ * ``apply MERGE_URL``
 
-   Rebases a merge request or branch on top of your main branch (``develop`` or ``master``) and then fast-forward merges it on top of your main branch. If the URL to an Assembla merge request is specified, the merge request will automatically be closed. The merged commits are not pushed to Assembla, so you are able to use ``git rebase`` to interactively edit, squash, or remove commits.
+   Rebases a merge request on top of the target branch and then fast-forward merges it onto the target branch. The merge request is then closed. The merged commits are not pushed to Assembla, so you are able to use ``git rebase`` to interactively edit, squash, or remove commits.
+
+ * ``apply BRANCH_NAME``
+
+   Rebases a merge request on top of the current branch and then fast-forward merges it onto the current branch. The merged commits are not pushed to Assembla, so you are able to use ``git rebase`` to interactively edit, squash, or remove commits.
 
  * ``review``
 

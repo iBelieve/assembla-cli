@@ -45,8 +45,6 @@ class AssemblaSpace(Repository):
         self.open_code_url('git/compare/{}...{}'.format(self.main_branch, self.current_branch))
 
     def apply_merge_request(self, url_or_branch):
-        target_branch = self.main_branch
-
         if self.has_unstaged_changes:
             raise ClickException('Git index must be empty before merging a merge request')
 
@@ -56,7 +54,6 @@ class AssemblaSpace(Repository):
         if match:
             space_name = match[1]
             merge_id = match[2]
-            temp_branch = 'assembla-merge-' + merge_id
 
             if space_name != self.name:
                 raise ClickException('Unable to merge MR from a different Assembla space: ' + space_name)
@@ -68,9 +65,11 @@ class AssemblaSpace(Repository):
 
             source_branch = merge_request['source_symbol']
             target_branch = merge_request['target_symbol']
+            temp_branch = 'assembla-merge-' + merge_id
         else:
             source_branch = url_or_branch
-            temp_branch = 'assembla-merge-' + source_branch.replace('_', '-')
+            target_branch = self.current_branch
+            temp_branch = 'assembla-merge-' + source_branch.replace('_', '-').replace('/', '-')
 
         print('Fetching merge request from ' + source_branch)
 
