@@ -73,15 +73,16 @@ class AssemblaSpace(Repository):
 
         print('Fetching merge request from ' + source_branch)
 
-        self.run('fetch {} {}'.format(self.origin_url, self.source_branch))
-        self.run('branch -f {} FETCH_HEAD && git checkout {}'.format(temp_branch, temp_branch))
+        self.run('fetch {} {}'.format(self.origin_url, source_branch))
+        self.run('branch -f {} FETCH_HEAD'.format(temp_branch))
+        self.run('checkout {}'.format(temp_branch))
 
         print('Rebasing on top of ' + target_branch)
         self.run('rebase ' + target_branch)
 
         print('Merging {} onto {}'.format(source_branch, target_branch))
         self.run('checkout ' + target_branch)
-        self.run('merge ' + source_branch)
+        self.run('merge --ff-only ' + temp_branch)
 
         if merge_request:
             print('Closing merge request')

@@ -24,4 +24,5 @@ class Repository(object):
         return branch in self.branches
 
     def run(self, command):
-        return subprocess.check_output(['git'] + command.split(' '), cwd=self.path).decode('utf-8').strip()
+        return subprocess.check_output(['git'] + command.split(' '), cwd=self.path,
+                                       stderr=subprocess.STDOUT).decode('utf-8').strip()
