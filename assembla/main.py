@@ -11,7 +11,7 @@ def cli():
 @click.argument('url_or_branch')
 def apply(url_or_branch):
     '''Apply a merge request'''
-    space().apply_merge_request()
+    space().apply_merge_request(url_or_branch)
 
 
 @cli.command('merge-request')

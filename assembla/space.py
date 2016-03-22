@@ -48,12 +48,12 @@ class AssemblaSpace(Repository):
         if self.has_unstaged_changes:
             raise ClickException('Git index must be empty before merging a merge request')
 
-        match = re.merge(r'https:\/\/www\.assembla\.com\/spaces\/(.+)\/git\/merge_requests\/(\d+)(\?.+)?',
+        match = re.match(r'https:\/\/www\.assembla\.com\/spaces\/(.+)\/git\/merge_requests\/(\d+)(\?.+)?',
                          url_or_branch)
 
         if match:
-            space_name = match[1]
-            merge_id = match[2]
+            space_name = match.group(1)
+            merge_id = match.group(2)
 
             if space_name != self.name:
                 raise ClickException('Unable to merge MR from a different Assembla space: ' + space_name)
