@@ -28,7 +28,7 @@ The following commands are available:
 
 - ``apply BRANCH_NAME``
 
-  Rebases a merge request on top of the current branch and then fast-forward merges it onto the current branch. The merged commits are not pushed to Assembla, so you are able to use ``git rebase`` to interactively edit, squash, or remove commits.
+  Rebases a branch on top of the current branch and then fast-forward merges it onto the current branch. The merged commits are not pushed to Assembla, so you are able to use ``git rebase`` to interactively edit, squash, or remove commits.
 
 - ``review``
 
